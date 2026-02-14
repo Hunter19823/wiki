@@ -39,13 +39,24 @@ And as it turns out, the best solution is not a single one, but a mix of all of 
 ### 1. Wiki-based Documentation
 
 As you already guessed, the wiki you are reading from right now, was one of the proposed solutions.
-Sometimes, you need to explain things in lamens' terms. Sometimes you need to provide sample code for people to copy and paste.
-The wiki is a great way to do this. But because it is a wiki, it is not a great way to provide a comprehensive list of all the possible things you can do with KubeJS.
-The KubeJS API has changed quite a bit over the years. Sometimes out of necessity, sometimes to improve functionality and flexibility.
-And for those reasons, the wiki itself cannot be the primary source of documentation.
+And with the help of the community, the wiki has improved significantly over the years.
+Almost all of the information in the wiki is maintained by the community, and are not paid to maintain it.
+
+Which brings me to the reason for having the wiki in the first place.
+Sometimes, you need to explain things in lamens' terms.
+Sometimes you need to provide a simple code snippet for people to copy and paste to get started.
+The wiki is a great way to do this.
+But because it needs to be updated by hand, it has some massive drawbacks.
+It takes time to update the wiki, time that could be spent on improving the API itself.
+With each Minecraft release, the internals change quite a bit. Which can necessitate changes to the API itself.
+The more content that is added to the wiki, the more work it becomes to maintain it and keep it up to date.
+For most of KubeJS's life, it was a multi-mod loader mod. Which meant that Fabric and Forge were both supported.
+And that meant each mod loader behaved differently and offered different capabilities.
+It is simply impossible to cover every single capability of KubeJS in a wiki format, and keep it up to date.
+And for those reasons, the wiki itself cannot be the primary source of documentation for KubeJS.
 But it can be a great starting point for learning the basics of KubeJS.
-Almost every major modpack that uses KubeJS, does not rely solely on the wiki for documentation.
-Later in this guide, I will explain how to use the other solutions to supplement the wiki.
+Every major modpack that uses KubeJS, does not rely solely on the wiki for documentation.
+Later in this guide, I will explain how to use the other solutions to supplement the wiki and do more than simply copy/paste code snippets.
 
 ### 2. Generated Documentation
 
@@ -84,6 +95,10 @@ If I try to unpack too little data, the searching and relational analysis will n
 So the current solution I came up with was to decompress chunks of data, index, and store them in the browser's local storage database.
 Once that process is complete, the relational analysis can be quickly loaded from the database, and minimize the time it takes to load the page.
 
+I will admit that KubeJS Offline Documentation is still not a perfect solution. 
+It won't suggest code completions, it doesn't provide working code snippets, and I am not a UI designer.
+It is not a replacement for the wiki, and it is not a replacement for IDE support.
+But it was designed to solve a specific problem, and if used correctly, can save you a lot of time debugging.
 
 ### 3. IDE Support
 
@@ -144,3 +159,10 @@ The more veteran you become, the more you will find yourself reading the source 
 Fun Fact: The most common reason for people to start reading source code is to understand how to fix a bug in their own scripts.
 This is because when you are stuck on a problem, and you are not able to find a solution, reading the source code of the mod or library you are using can often times provide the answer you are looking for.
 <<<
+
+
+## Conclusion
+
+As you can see, there are many different ways to document KubeJS.
+And no single solution is a one-size-fits-all solution for all use cases.
+The best way to understand KubeJS is to use a combination of all of these solutions together.
