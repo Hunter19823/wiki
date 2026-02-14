@@ -116,7 +116,7 @@ The five most important things to understand about KubeJS are:
 - Beans
 - Functional Interface Proxies
 
-#### Script Type
+### Script Type
 
 Script Types are fairly straight forward.
 They are used to separate logic by mod life cycle.
@@ -141,7 +141,7 @@ All it is doing is exposing the port the internal server was running on.
 
 You'll sometimes see oddities in startup code where an event fires twice, once for client and once for server.
 
-#### Bindings
+### Bindings
 
 Bindings are a way for KubeJS and addons to add script-type based global constants.
 It is the fundamental reason why KubeJS can connect Minecraft to JS code.
@@ -159,7 +159,7 @@ For example KubeJS Offline Documentation can scan the registered Bindings for th
 
 [KubeJS Offline](https://hunter19823.github.io/kubejsoffline/1.20.1/forge/#?focus=global-bindings-header&global-bindings-expanded=true)
 
-#### Type Wrappers
+### Type Wrappers
 
 JavaScript is a loosely typed language.
 What this means is that you do not need to explicitly declare what type a variable or value is in order to store and use it.
@@ -217,7 +217,7 @@ But Rhino could just as easily convert that same string into an ItemStack, becau
 The fact that both support converting a string into an ItemStack isn't the issue here. The issue is that we have two identically named methods, with different parameters that have different type wrappers registered.
 Rhino does not know how to prioritize one over the other, so it chooses to fail in such cases.
 
-#### Beans
+### Beans
 
 In short Beans are just syntactical sugar that make it easier to write setter and getter methods.
 
@@ -225,7 +225,7 @@ Anytime a Java object has .setX and .getX, on the JS side you can reference X as
 
 There is a wiki entry regarding beans: [[/tips/beans]].
 
-#### Functional Interface Proxies
+### Functional Interface Proxies
 
 This one is a bit tricky to understand, but put simply:
 
