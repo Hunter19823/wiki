@@ -2,11 +2,11 @@
 
 ## Pretext
 
-A common critique of KubeJS is that there isn't much documentation. Which if you are used to mods that have their own custom language, it can really feel like there isn't any documentation.
-The tricky part is that KubeJS is not a single language. It is also not a new language either.
+A common critique of KubeJS is that there isn't much documentation. If you are used to mods that have their own custom language, it can really feel like there isn't any documentation.
+The tricky part is that KubeJS is not a single language. Nor is it a new language.
 In fact, it is a hybrid between Java and JavaScript. Which means the syntax, grammar, and style are almost entirely JavaScript. To the point where programming tools like VSCode and IntelliJ will treat it as JavaScript.
-But the actual semantics and the logic behind how everything works is based in Java. 
-Which ultimately means it has the versality of Java modding with the simplicity of JavaScript programming.
+But the actual semantics and the logic behind how everything works are based in Java.
+Which ultimately means it has the versatility of Java modding with the simplicity of JavaScript programming.
 
 >>> info
 Fun fact, this is actually why AI has such a hard time understanding KubeJS. 
@@ -16,13 +16,13 @@ This is also why it is easier to spot AI generated code, as it will produce code
 This is why the community has been vocally against AI generated code.
 <<<
 
-But there in lies the crux of the problem. Because it is has the versality of Java modding, it is capable of doing more than can be practically documented.
+But therein lies the crux of the problem. Because it has the versatility of Java modding, it is capable of doing more than can be practically documented.
 So a decision needed to be made.
 
 ## History
 
 Back in 2021, Max, one of KubeJS's maintainers, made a great post discussing the possible ways to document KubeJS and the challenges each one presents.
-That post is now gone from GitHub, but it was captured in the way back machine in 2024. If you are interested in reading through that post you can find it [here](https://web.archive.org/web/20240629153432/https://github.com/KubeJS-Mods/KubeJS/discussions/113).
+That post is now gone from GitHub, but it was captured on the Wayback Machine in 2024. If you are interested in reading through it, you can find it [here](https://web.archive.org/web/20240629153432/https://github.com/KubeJS-Mods/KubeJS/discussions/113).
 But to summarize that post, there were three primary camps of thought for how to handle documentation. 
 And two secondary camps that have become popular in recent years. 
 
@@ -38,12 +38,12 @@ And as it turns out, the best solution is not a single one, but a mix of all of 
 
 ### 1. Wiki-based Documentation
 
-As you already guessed, the wiki you are reading from right now, was one of the proposed solutions.
+As you already guessed, the wiki you are reading right now was one of the proposed solutions.
 And with the help of the community, the wiki has improved significantly over the years.
-Almost all of the information in the wiki is maintained by the community, and are not paid to maintain it.
+Almost all of the information in the wiki is maintained by the community, who are not paid to maintain it.
 
 Which brings me to the reason for having the wiki in the first place.
-Sometimes, you need to explain things in lamens' terms.
+Sometimes you need to explain things in layman's terms.
 Sometimes you need to provide a simple code snippet for people to copy and paste to get started.
 The wiki is a great way to do this.
 But because it needs to be updated by hand, it has some massive drawbacks.
@@ -55,7 +55,7 @@ And that meant each mod loader behaved differently and offered different capabil
 It is simply impossible to cover every single capability of KubeJS in a wiki format, and keep it up to date.
 And for those reasons, the wiki itself cannot be the primary source of documentation for KubeJS.
 But it can be a great starting point for learning the basics of KubeJS.
-Every major modpack that uses KubeJS, does not rely solely on the wiki for documentation.
+Every major modpack that uses KubeJS does not rely solely on the wiki for documentation.
 Later in this guide, I will explain how to use the other solutions to supplement the wiki and do more than simply copy/paste code snippets.
 
 ### 2. Generated Documentation
@@ -66,7 +66,7 @@ Back in the day, before any automatic remapping, this was essential for knowing 
 At this point wikis were basically non-existent, and this was one of the few ways to get documentation for KubeJS.
 
 After Minecraft 1.16, I ported Aurora in the form of Borealis.
-I added a few features to it, improve the information displayed, and added some functionality to allow for custom webserver features.
+I added a few features to it, improved the information displayed, and added some functionality to allow for custom webserver features.
 But in the end, having to expose an additional port to get documentation was not a viable solution.
 There were security concerns with exposing an additional port.
 And you had to have the game running to get documentation.
@@ -74,26 +74,26 @@ I found myself trying to help people on Discord from my phone, and didn't want t
 
 >>> info
 Fun Fact: There are studies that show teaching others something is the best way to retain the information yourself.
-I wouldn't have known as much about KubeJS as I do now if I didn't spend several years helping others how to use it.
+I wouldn't have known as much about KubeJS as I do now if I hadn't spent several years helping others learn how to use it.
 <<<
 
 After Minecraft 1.18.2, I created KubeJS Offline Documentation. This tool was the successor to Borealis.
 Rather than running a webserver, I instead scanned the Java runtime for all the available classes, methods, and fields.
 I compressed the information into a single JSON file and then used it to generate a static html page.
 The idea was that it was completely self-contained and, once generated, could be used completely offline.
-In this format, I was also able to add searching functionality and relational analysis between classes, so you quickly dig through thousands of classes for what you need.
+In this format, I was also able to add searching functionality and relational analysis between classes, so you can quickly dig through thousands of classes for what you need.
 I will explain some of the advanced ways to use this tool later in this guide.
-The way that I can support every single javadoc in a single html file, is by clearing and creating the UI elements on demand.
-This way, if you click on a link, nothing needs to be re-loaded, and the page will update in real time.
+The way that I can support every single javadoc in a single html file is by clearing and creating the UI elements on demand.
+This way, if you click on a link, nothing needs to be reloaded, and the page will update in real time.
 
-Overtime, I found myself including more and more information in that JSON file, and constantly fighting with the size of the file.
-Saving the entire java runtime into a single JSON file is not exactly simple or space efficient.
+Over time, I found myself including more and more information in that JSON file, and constantly fighting with the size of the file.
+Saving the entire Java runtime into a single JSON file is not exactly simple or space efficient.
 Most javadoc generators generate a single html file for each class.
-I had to find unique ways to compress the information, re-duplicate data, and optimize de-compression.
+I had to find unique ways to compress the information, deduplicate data, and optimize decompression.
 If I unpack too much data, the browser will run out of memory and crash.
 If I try to unpack too little data, the searching and relational analysis will not work as expected.
 So the current solution I came up with was to decompress chunks of data, index, and store them in the browser's local storage database.
-Once that process is complete, the relational analysis can be quickly loaded from the database, and minimize the time it takes to load the page.
+Once that process is complete, the relational analysis can be quickly loaded from the database, which minimizes the time it takes to load the page.
 
 I will admit that KubeJS Offline Documentation is still not a perfect solution. 
 It won't suggest code completions, it doesn't provide working code snippets, and I am not a UI designer.
@@ -105,7 +105,7 @@ But it was designed to solve a specific problem, and if used correctly, can save
 As I mentioned earlier, KubeJS is a hybrid between Java and JavaScript.
 Which means that the syntax, grammar, and style are almost entirely JavaScript.
 But the type system is majority Java.
-And if you know anything about Javascipt type system, you know that it is very loose and flexible.
+And if you know anything about the JavaScript type system, you know that it is very loose and flexible.
 Which means that for an IDE to provide meaningful suggestions, it would need to have a lot of context about the code.
 And that is where TypeScript comes in.
 TypeScript is a superset of JavaScript that adds static typing to the language.
@@ -115,7 +115,7 @@ For example, TypeScript is a superset of JavaScript.
 It is a language that is compiled to JavaScript, and is therefore compatible with all JavaScript environments.
 <<<
 
-Most modern IDEs support TypeScript as it's primary means of understanding JavaScript code.
+Most modern IDEs support TypeScript as their primary means of understanding JavaScript code.
 Which meant that the next logical step was to generate TypeScript definitions for KubeJS.
 And that is where ProbeJS comes in.
 ProbeJS is a tool created by Prunoideae, a Bioinformatics researcher and KubeJS contributor.
@@ -124,28 +124,28 @@ He helped push for annotation driven documentation, which is a way to pass infor
 This allowed for TypeScript definitions to be generated with real documentation, and not just type information.
 Additionally, it helped those reading the source code to have a better understanding of the code, and how it works.
 
-Overtime, ProbeJS has been updated, improved, and now supports providing much more than simple type information.
-It can suggest item ids, block ids, and even displays icons for items and blocks.
+Over time, ProbeJS has been updated, improved, and now supports providing much more than simple type information.
+It can suggest item ids, block ids, and even display icons for items and blocks.
 
-The downside of this kind of documentation however, is not the fault of ProbeJS, but the fault of the TypeScript servers themselves.
+The downside of this kind of documentation, however, is not the fault of ProbeJS, but the fault of the TypeScript servers themselves.
 TypeScript servers are not designed to handle the entire Java runtime's worth of type definitions.
-They are also not designed to handle TypeWrappers which are a Rhino specific feature.
-This means that ProbeJS has to limit the amount of information it generates, and 'guess' what types you are likely to be using.
-This is often times why you may be missing certain suggestions, or why your IDE is hogging your memory.
+They are also not designed to handle TypeWrappers, which are a Rhino-specific feature.
+This means that ProbeJS has to limit the amount of information it generates and 'guess' what types you are likely to be using.
+This is often why you may be missing certain suggestions, or why your IDE is hogging your memory.
 
 ### 4. Leveraging Existing Sources
 
 One of the reasons KubeJS is so popular is because it is a very versatile mod.
 It can interface with other mods, allowing for a lot of flexibility and customization.
 This can be used to your advantage when you are trying to find documentation on how to do something with a specific mod.
-For example, trying to find documentation on JEI plugins or Jade Plugins for KubeJS made be somewhat difficult.
+For example, finding documentation on JEI plugins or Jade plugins for KubeJS may be somewhat difficult.
 But JEI and Jade both have their own documentation for making a plugin for their respective mods.
 And by utilizing their documentation, you only really need to understand where the connection points are between KubeJS and the other mod.
 
 ### 5. In-Code Documentation
 
-Java has a feature called documentation comments, which is a way to document java code.
-There are tools shipped with Java installations to generate JavaDocs from documentation comments, and this is often times the way large software projects document their code.
+Java has a feature called documentation comments, which are a way to document Java code.
+There are tools shipped with Java installations to generate JavaDocs from documentation comments, and this is often the way large software projects document their code.
 The only downside is that this information does not stick around in the compiled byte code, and is not able to be used to generate documentation at runtime.
 Java also has a feature called annotations, which isn't just for documentation, but can be used to define additional information about the code that is available at runtime.
 KubeJS leverages this feature so that tools like ProbeJS and KubeJS Offline Documentation can enrich their own documentation at runtime.
@@ -157,7 +157,7 @@ The more veteran you become, the more you will find yourself reading the source 
 
 >>> info
 Fun Fact: The most common reason for people to start reading source code is to understand how to fix a bug in their own scripts.
-This is because when you are stuck on a problem, and you are not able to find a solution, reading the source code of the mod or library you are using can often times provide the answer you are looking for.
+This is because when you are stuck on a problem, and you are not able to find a solution, reading the source code of the mod or library you are using can often provide the answer you are looking for.
 <<<
 
 
